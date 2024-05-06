@@ -4,7 +4,7 @@ var router = express.Router();
 /* GET greeting */
 router.get('/', function(req, res, next) {
   res.send(
-    { "greeting": "Hello, world!" }
+    { "greeting": "Hello, boaz!" }
   );
 });
 
