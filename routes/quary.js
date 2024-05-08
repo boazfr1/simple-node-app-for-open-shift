@@ -1,5 +1,4 @@
 var express = require('express');
-var con = require('../db.config');
 var router = express.Router();
 
 /* GET greeting */
