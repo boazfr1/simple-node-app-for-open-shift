@@ -1,4 +1,6 @@
 var mysql = require('mysql');
+require('dotenv').config();
+
 
 var con = mysql.createConnection({
     host: process.env.DB_HOST || "localhost",
@@ -13,6 +15,7 @@ con.connect(function (err) {
         return;
     }
     console.log("Connected to MySQL database");
+    console.log("process.env.DB_HOST = ", process.env.DB_HOST);
 
     // Check if the database "greet" exists
     con.query("CREATE DATABASE IF NOT EXISTS greet", function (err) {
