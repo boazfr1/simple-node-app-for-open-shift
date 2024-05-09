@@ -3,10 +3,11 @@ require('dotenv').config();
 
 
 var con = mysql.createConnection({
-    host: process.env.DB_HOST || "localhost",
-    port: process.env.DB_PORT || 3306,
-    user: process.env.DB_USER || "root",
-    password: process.env.DB_PASSWORD || "z10mz10m"
+    host: process.env.MYSQL_HOST || "mysql",
+    port: process.env.MYSQL_PORT || 3306,
+    user: process.env.MYSQL_USER || "root",
+    password: process.env.MYSQL_PASSWORD || "z10mz10m",
+    database: process.env.MYSQL_DATABASE || "greet"
 });
 
 con.connect(function (err) {
