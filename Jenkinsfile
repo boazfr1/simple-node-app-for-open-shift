@@ -9,13 +9,13 @@ pipeline {
 
     
     stages {
-        // stage('Checkout') {
-        //     steps {
-        //         echo 'Checkout'
-        //         // Checkout the source code from the repository
-        //         git 'https://github.com/boazfr1/simple-node-app-for-open-shift.git'
-        //     }
-        // }
+        stage('Checkout') {
+            steps {
+                echo 'Checkout'
+                // Checkout the source code from the repository
+                git 'https://github.com/boazfr1/simple-node-app-for-open-shift.git'
+            }
+        }
         stage('Install Dependencies') {
             steps {
                 echo 'Install Dependencies'
@@ -30,12 +30,14 @@ pipeline {
         }
         stage('Build Docker Image') {
             steps {
-                echo 'Build Docker Image'                
+                echo 'Build Docker Image'
+                sh 'docker build . -t ${DOCKER_IMAGE}:${DOCKER_TAG}'                
             }
         }
-        stage('Push Docker Image') {
+        stage('run the docker') {
             steps {
-               echo 'docker push'
+               echo 'docker run'
+               sh 'docker run -d ${DOCKER_IMAGE}:${DOCKER_TAG} -p 8081:8081'
             }
         }
     }
