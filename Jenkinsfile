@@ -31,13 +31,13 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 echo 'Build Docker Image'
-                sh 'sudo docker build . -t ${DOCKER_IMAGE}:${DOCKER_TAG}'                
+                sh 'docker build . -t ${DOCKER_IMAGE}:${DOCKER_TAG}'                
             }
         }
         stage('run the docker') {
             steps {
                echo 'docker run'
-               sh 'sudo docker run -d ${DOCKER_IMAGE}:${DOCKER_TAG} -p 8081:8081'
+               sh 'docker run -d ${DOCKER_IMAGE}:${DOCKER_TAG} -p 8081:8081'
             }
         }
     }
