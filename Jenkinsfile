@@ -33,12 +33,7 @@ pipeline {
         }
         stage('Build Docker Image') {
             steps {
-                echo 'Build Docker Image'
-                // Build the Docker image
-                sh 'docker build . -t ${DOCKER_IMAGE}:${DOCKER_TAG}'
-                // script {
-                //     docker.build("${DOCKER_IMAGE}:${DOCKER_TAG}")
-                // }
+                echo 'Build Docker Image'                
             }
         }
         stage('Push Docker Image') {
