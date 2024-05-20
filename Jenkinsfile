@@ -7,6 +7,10 @@ pipeline {
         DOCKER_TAG = 'latest'
     }
 
+    triggers {
+        pollSCM('H/5 * * * *')
+    }
+
     stages {
         stage('Checkout') {
             steps {
