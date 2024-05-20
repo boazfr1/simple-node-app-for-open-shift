@@ -29,16 +29,16 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'test'
-                sh './jenkins/scripts/test.sh'
             }
         }
         stage('Build Docker Image') {
             steps {
                 echo 'Build Docker Image'
                 // Build the Docker image
-                script {
-                    docker.build("${DOCKER_IMAGE}:${DOCKER_TAG}")
-                }
+                sh 'docker build . -t ${DOCKER_IMAGE}:${DOCKER_TAG}'
+                // script {
+                //     docker.build("${DOCKER_IMAGE}:${DOCKER_TAG}")
+                // }
             }
         }
         stage('Push Docker Image') {
