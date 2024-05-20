@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent { label 'aws-one' }
 
     environment {
         // Define Docker image name and tag
@@ -12,8 +12,8 @@ pipeline {
         stage('Checkout') {
             steps {
                 echo 'Checkout'
-                // Checkout the source code from the repository
-                git 'https://github.com/boazfr1/simple-node-app-for-open-shift.git'
+                // Checkout the source code from the repository with a specified branch
+                git branch: 'without-mysql', url: 'https://github.com/boazfr1/simple-node-app-for-open-shift.git'
             }
         }
         stage('Install Dependencies') {
