@@ -12,13 +12,13 @@ pipeline {
     }
 
     stages {
-        stage('Checkout') {
-            steps {
-                echo 'Checkout'
-                // Checkout the source code from the repository
-                git 'https://github.com/boazfr1/simple-node-app-for-open-shift.git'
-            }
-        }
+        // stage('Checkout') {
+        //     steps {
+        //         echo 'Checkout'
+        //         // Checkout the source code from the repository
+        //         git 'https://github.com/boazfr1/simple-node-app-for-open-shift.git'
+        //     }
+        // }
         stage('Install Dependencies') {
             steps {
                 echo 'Install Dependencies'
