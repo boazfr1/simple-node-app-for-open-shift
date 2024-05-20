@@ -1,5 +1,5 @@
 pipeline {
-    agent { label 'aws-one' }
+    agent any
 
     environment {
         // Define Docker image name and tag
