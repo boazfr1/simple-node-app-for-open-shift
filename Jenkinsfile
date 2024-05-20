@@ -7,10 +7,7 @@ pipeline {
         DOCKER_TAG = 'latest'
     }
 
-    triggers {
-        cron('H/5 * * * *')
-    }
-
+    
     stages {
         // stage('Checkout') {
         //     steps {
